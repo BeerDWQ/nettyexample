@@ -1,4 +1,4 @@
-package com.juejin.clientstart;
+package com.juejin.serverstart;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
