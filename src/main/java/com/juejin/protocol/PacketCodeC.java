@@ -19,6 +19,8 @@ import static com.juejin.protocol.Command.*;
 public class PacketCodeC {
 
     private static final int MAGIC_NUMBER = 0x12345678;
+    public static final PacketCodeC INSTANCE = new PacketCodeC();
+
     //数据包类型
     private static final Map<Byte,Class<? extends Packet>>  packetTypeMap;
     //序列化类型
@@ -37,10 +39,10 @@ public class PacketCodeC {
     }
 
     //封装成二进制
-    public ByteBuf encode(Packet packet) {
+    public ByteBuf encode(ByteBufAllocator byteBufAllocator,Packet packet) {
 
         //创建ByteBuf对象
-        ByteBuf byteBuf = ByteBufAllocator.DEFAULT.ioBuffer();
+        ByteBuf byteBuf = byteBufAllocator.ioBuffer();
 
         //序列化Java对象
         byte[] bytes = Serializer.DEFAULT.serialize(packet);
