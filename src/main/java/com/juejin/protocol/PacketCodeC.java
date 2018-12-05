@@ -6,7 +6,7 @@ import io.netty.buffer.ByteBufAllocator;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.juejin.protocol.Command.LOGIN_REQUEST;
+import static com.juejin.protocol.Command.*;
 
 /****************************************************
  *
@@ -27,6 +27,9 @@ public class PacketCodeC {
     static {
         packetTypeMap = new HashMap<>();
         packetTypeMap.put(LOGIN_REQUEST,LoginRequestPacket.class);
+        packetTypeMap.put(LOGIN_RESPONSE,LoginResponsePacket.class);
+        packetTypeMap.put(MESSAGE_REQUEST,MessageRequestPacket.class);
+        packetTypeMap.put(MESSAGE_RESPONSE,MessageResponsePacket.class);
 
         Serializer serializer = new JSONSerializer();
         serializeTypeMap = new HashMap<>();

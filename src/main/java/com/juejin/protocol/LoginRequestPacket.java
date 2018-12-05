@@ -2,6 +2,8 @@ package com.juejin.protocol;
 
 import lombok.Data;
 
+import static com.juejin.protocol.Command.LOGIN_REQUEST;
+
 /****************************************************
  *
  * @Description:  登陆数据包
@@ -11,7 +13,7 @@ import lombok.Data;
  * @Modified By:
  ****************************************************/
 @Data
-public class LoginRequestPacket extends Packet implements Command{
+public class LoginRequestPacket extends Packet{
 
     private Integer userId;
 
