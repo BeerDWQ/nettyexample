@@ -1,0 +1,9 @@
+查找操作 shift+command+a
+整体换行 shift+commamd+上/下
+切换项目窗口 shift+command+`
+切换文件目录和编辑目录 command+1/command+2
+当天浏览的文件 command+e  当天更改的文件 shift + command + e
+首字母跳转 control + j 然后首字母
+上次编辑的地方 shift + command + delete
+上次浏览的地方 alt + command + ->/<-
+书签跳转 F3 带数字 alt + F3
