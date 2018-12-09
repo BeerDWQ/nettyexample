@@ -4,6 +4,8 @@ import com.juejin.protocol.MessageResponsePacket;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
+import java.util.Date;
+
 /****************************************************
  *
  * @Description:  客户端消息处理模块
@@ -16,6 +18,6 @@ public class MessageResponseHandler extends SimpleChannelInboundHandler<MessageR
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, MessageResponsePacket messageResponsePacket) throws Exception {
-
+        System.out.println(new Date() + "receive message");
     }
 }

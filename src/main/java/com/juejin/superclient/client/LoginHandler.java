@@ -7,6 +7,8 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
+import java.util.Date;
+
 /****************************************************
  *
  * @Description:  客户端登录处理模块
@@ -29,9 +31,10 @@ public class LoginHandler extends SimpleChannelInboundHandler<LoginResponsePacke
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, LoginResponsePacket loginResponsePacket) throws Exception {
         if (loginResponsePacket.isSuccess()) {
+            System.out.println(new Date() + "login successful");
             LoginUtil.markLogin(channelHandlerContext.channel());
         }else {
-            System.out.println(loginResponsePacket.getReason());
+            System.out.println(new Date() + loginResponsePacket.getReason());
         }
     }
 }
