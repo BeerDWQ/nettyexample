@@ -2,6 +2,8 @@ package com.juejin.client;
 
 import com.juejin.protocol.LoginResponsePacket;
 import com.juejin.protocol.PacketCodeC;
+import com.juejin.superclient.client.AuthHandler;
+import com.juejin.superclient.client.LifeCycleTestHandler;
 import com.juejin.superclient.client.LoginHandler;
 import com.juejin.superclient.client.MessageResponseHandler;
 import com.juejin.superclient.code.PacketDecode;
@@ -58,8 +60,11 @@ public class ClientServer {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
+                        socketChannel.pipeline().addLast(new LifeCycleTestHandler());//显示执行顺序
                         socketChannel.pipeline().addLast(new PacketDecode());
                         socketChannel.pipeline().addLast(new LoginHandler());
+                        //重复登录验证
+                        socketChannel.pipeline().addLast(new AuthHandler());
                         socketChannel.pipeline().addLast(new MessageResponseHandler());
                         socketChannel.pipeline().addLast(new PacketEncode());
                     }
